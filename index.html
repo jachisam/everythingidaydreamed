@@ -1,46 +1,34 @@
-<!DOCTYPE html>
+<!Doctype html>
 <html>
 <head>
-<link rel="shortcut icon" type="image/x-icon" href="../cloud.ico" />
-</head>
-<body>
+  <title>Everything I Daydreamed</title>
 
-<p>everything i daydreamed</p>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-red.min.css" />
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
-</body>
-<!-- <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script> -->
-<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
-<script>
+  <!--Main Stylesheet -->
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+  </head>
+  <body>
+    <p> everything i daydreamed </p>
 
-const firebase = require("firebase");
-// Required for side-effects
-require("firebase/firestore");
 
-// Initialize Cloud Firestore through Firebase
-var db = firebase.firestore();
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDEY6adN1jIF7V6R9SJvoTYsclugwLd1EI",
+      authDomain: "everythingidaydreamed.firebaseapp.com",
+      databaseURL: "https://everythingidaydreamed.firebaseio.com",
+      projectId: "everythingidaydreamed",
+      storageBucket: "everythingidaydreamed.appspot.com",
+      messagingSenderId: "1091322517855"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="index.js"></script>
 
-// Disable deprecated features
-db.settings({
-  timestampsInSnapshots: true
-});
 
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDEY6adN1jIF7V6R9SJvoTYsclugwLd1EI",
-    authDomain: "everythingidaydreamed.firebaseapp.com",
-    databaseURL: "https://everythingidaydreamed.firebaseio.com",
-    projectId: "everythingidaydreamed",
-    storageBucket: "everythingidaydreamed.appspot.com",
-    messagingSenderId: "1091322517855"
-  };
-  firebase.initializeApp(config);
-
-  db.collection("playlists").get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-          console.log(`${doc.id} => ${doc.data()}`);
-      });
-  });
-
-</script>
+  </body>
 </html>
