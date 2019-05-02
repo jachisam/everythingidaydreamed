@@ -1,0 +1,30 @@
+/* CSS */
+
+/* colors: f0bfb3, e2e2e2 */
+
+body {
+  background-color: #F6F6F6;
+}
+
+.blogtitle {
+  font-size:36px;
+  line-height:36px;
+  letter-spacing: 5px;
+  text-align:center;
+  color:#a22a2a;
+}
+
+.description {
+margin-top:7px;
+margin-bottom:7px;
+font-size:14px;
+display:block;
+padding:0px 120px 0px 120px;
+}
+
+
+
+img.resize {
+  max-width:25%;
+  max-height:25%;
+}
