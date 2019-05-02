@@ -17,6 +17,7 @@
   - tracklist
   - image
 - Search Bar Functionality
+- Song Player
 - Embed Instagram Feed
 - Footer
   - name, year
