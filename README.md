@@ -9,5 +9,12 @@
 ## TO DO
 - Search Bar css
 - Individual Pages
+  - song title
+  - artists
+  - description
+  - genre
+  - hashtags
+  - tracklist
+  - image
 - Search Bar Functionality
 - Footer
