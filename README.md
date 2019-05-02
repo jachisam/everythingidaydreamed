@@ -17,4 +17,11 @@
   - tracklist
   - image
 - Search Bar Functionality
+- Embed Instagram Feed
 - Footer
+  - name, year
+  - icons
+    - Instagram
+    - Facebook
+    - Twitter
+- Apple API
