@@ -7,7 +7,7 @@
 [![Landing Page Preview](https://raw.githubusercontent.com/jachisam/everythingidaydreamed/master/images/everythingidaydreamed.png)](https://jachisam.github.io/everythingidaydreamed/)
 
 ## TO DO
-- Search Bar css
+- ~~Search Bar css~~
 - Individual Pages
   - song title
   - artists
@@ -26,3 +26,6 @@
     - Facebook
     - Twitter
 - Apple API
+
+## Sources
+ - https://codepen.io/mihaeltomic/pen/vmwMdm (helped with search bar)
