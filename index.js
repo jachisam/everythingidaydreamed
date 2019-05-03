@@ -9,29 +9,6 @@ function writeUserData(name, imageUrl, desc, gen, hash) {
   console.log("wrote user data")
 }
 
-// function playlistElement(text){
-//   const pn = document.createElement("P");
-//   const tn = document.createTextNode(text);
-//   pn.appendChild(tn);
-//   document.getElementById("playlist-name-div").appendChild(pn);
-// }
-//
-// function pElement(text){
-//   const pn = document.createElement("P");
-//   const tn = document.createTextNode(text);
-//   pn.appendChild(tn);
-//   document.getElementById("playlist-div").appendChild(pn);
-// }
-//
-// function imgElement(img){
-//   const pn = document.createElement("IMG");
-//   pn.setAttribute("src", img);
-//   pn.setAttribute("width", "304");
-//   pn.setAttribute("height", "228");
-//   pn.setAttribute("alt", img);
-//   document.getElementById("playlist-div").appendChild(pn);
-// }
-
 //Retrieve data from firebase
 firebase.database().ref('/playlists/').once('value').then(function(snapshot) {
   const data = snapshot.val();
@@ -43,17 +20,18 @@ firebase.database().ref('/playlists/').once('value').then(function(snapshot) {
   for(const name of playlistNames){
     const description = data[name].description;
     const img = data[name].cover_art;
+    const genre = data[name].genre;
     if (section_flag === true){
-      createPlaylistSection(name, description, img);
+      createPlaylistSection(name, description, img, genre);
     }else{
-      createPlaylistSection2(name, description, img);
+      createPlaylistSection2(name, description, img, genre);
     }
     section_flag = !(section_flag);
   }
 });
 
 //create the playlist section 1 divs (picture on the right)
-function createPlaylistSection(name, description, img){
+function createPlaylistSection(name, description, img, genre){
   const section = document.createElement("div");
   section.setAttribute("class", "row no-gutters");
   const section_img = document.createElement("div");
@@ -63,17 +41,34 @@ function createPlaylistSection(name, description, img){
   const section_text = document.createElement("div");
   section_text.setAttribute("class", "col-lg-6 order-lg-1 my-auto showcase-text");
   const section_text_h2 = document.createElement("h2");
-  section_text_h2.innerHTML = name;
-  const section_text_p = document.createElement("p");
+  section_text_h2.setAttribute("style", "color:#a22a2a;");
+  section_text_h2.innerHTML = "<a href='https://www.google.com/'>"+name+"</a>";
+  const section_text_p = document.createElement("h3");
   section_text_p.setAttribute("class", "lead mb-0");
   section_text_p.innerHTML = description;
+  let genre_text = "";
+  for (let g = 0; g < genre.length; g++){
+    if (g === genre.length - 1){
+      genre_text += genre[g];
+    }else{
+      genre_text += genre[g] + " · ";
+    }
+  }
+  const section_text_pp = document.createElement("small");
+  section_text_pp.setAttribute("class", "genres");
+  section_text_pp.innerHTML = genre_text;
   section_text.appendChild(section_text_h2);
   section_text.appendChild(section_text_p);
+  const br = document.createElement("br");
+  section_text.appendChild(br);
+  section_text.appendChild(section_text_pp);
   section.appendChild(section_text);
+
+
   document.getElementById("playlist-sections").appendChild(section);
 }
 //create the playlist section 2 divs (picture on the left)
-function createPlaylistSection2(name, description, img){
+function createPlaylistSection2(name, description, img, genre){
   const section2 = document.createElement("div");
   section2.setAttribute("class", "row no-gutters");
   const section_img2 = document.createElement("div");
@@ -83,12 +78,26 @@ function createPlaylistSection2(name, description, img){
   const section_text2 = document.createElement("div");
   section_text2.setAttribute("class", "col-lg-6 order-lg-1 my-auto showcase-text");
   const section_text_h22 = document.createElement("h2");
-  section_text_h22.innerHTML = name;
+  section_text_h22.innerHTML = "<a href='https://www.google.com/'>"+name+"</a>";
   const section_text_p2 = document.createElement("p");
   section_text_p2.setAttribute("class", "lead mb-0");
   section_text_p2.innerHTML = description;
+  let genre_text = "";
+  for (let g = 0; g < genre.length; g++){
+    if (g === genre.length - 1){
+      genre_text += genre[g];
+    }else{
+      genre_text += genre[g] + " · ";
+    }
+  }
+  const section_text_pp = document.createElement("small");
+  section_text_pp.setAttribute("class", "genres");
+  section_text_pp.innerHTML = genre_text;
   section_text2.appendChild(section_text_h22);
   section_text2.appendChild(section_text_p2);
+  const br = document.createElement("br");
+  section_text2.appendChild(br);
+  section_text2.appendChild(section_text_pp);
   section2.appendChild(section_text2);
   document.getElementById("playlist-sections").appendChild(section2);
 }

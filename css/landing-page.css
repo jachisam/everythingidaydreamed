@@ -4,11 +4,6 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-landing-page/blob/master/LICENSE)
  */
 
-body {
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background-color: #F6F6F6;
-}
-
 h1,
 h2,
 h3,
@@ -133,6 +128,29 @@ footer.footer {
 
 /* colors: f0bfb3, e2e2e2 */
 
+body {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #F6F6F6;
+}
+
+a {
+  color: #91A8d0 !important;
+  text-decoration: none !important;
+  letter-spacing: 2px !important;
+  text-transform: lowercase;
+  background-color: transparent !important;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+a:hover {
+  letter-spacing: 3px !important;
+  text-transform: lowercase;
+}
+
+.genres {
+  color: #f7786b;
+  text-transform: lowercase;
+}
+
 .blogtitle {
   font-size:36px !important;
   line-height:36px !important;
@@ -144,11 +162,11 @@ footer.footer {
 }
 
 .description {
-margin-top:7px;
-margin-bottom:7px;
-font-size:14px;
-display:block;
-padding:0px 120px 0px 120px;
+  margin-top:7px;
+  margin-bottom:7px;
+  font-size:14px;
+  display:block;
+  padding:0px 120px 0px 120px;
 }
 
 
@@ -156,16 +174,6 @@ padding:0px 120px 0px 120px;
 img.resize {
   max-width:25%;
   max-height:25%;
-}
-
-
-.active-pink-2 input[type=text]:focus:not([readonly]) {
-    border-bottom: 1px solid #f48fb1;
-    box-shadow: 0 1px 0 0 #f48fb1;
-}
-.active-pink input[type=text] {
-    border-bottom: 1px solid #f48fb1;
-    box-shadow: 0 1px 0 0 #f48fb1;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900');
@@ -243,8 +251,3 @@ img.resize {
         .credits__link:focus {
             color: rgb(191, 137, 135);
         }
-
-
-.smaller{
-  height: 300px;
-}
