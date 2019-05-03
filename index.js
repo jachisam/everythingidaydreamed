@@ -21,17 +21,18 @@ firebase.database().ref('/playlists/').once('value').then(function(snapshot) {
     const description = data[name].description;
     const img = data[name].cover_art;
     const genre = data[name].genre;
+    const hashtag = data[name].hashtags;
     if (section_flag === true){
-      createPlaylistSection(name, description, img, genre);
+      createPlaylistSection(name, description, img, genre, hashtag);
     }else{
-      createPlaylistSection2(name, description, img, genre);
+      createPlaylistSection2(name, description, img, genre, hashtag);
     }
     section_flag = !(section_flag);
   }
 });
 
 //create the playlist section 1 divs (picture on the right)
-function createPlaylistSection(name, description, img, genre){
+function createPlaylistSection(name, description, img, genre, hashtag){
   const section = document.createElement("div");
   section.setAttribute("class", "row no-gutters");
   const section_img = document.createElement("div");
@@ -54,21 +55,33 @@ function createPlaylistSection(name, description, img, genre){
       genre_text += genre[g] + " · ";
     }
   }
+  let hashtag_text = "";
+  for (let h = 0; h < hashtag.length; h++){
+    if (h === hashtag.length - 1){
+      hashtag_text += "#" + hashtag[h];
+    }else{
+      hashtag_text += "#" + hashtag[h] + " &nbsp;&nbsp;&nbsp;";
+    }
+  }
   const section_text_pp = document.createElement("small");
   section_text_pp.setAttribute("class", "genres");
-  section_text_pp.innerHTML = genre_text;
+  section_text_pp.innerHTML = genre_text + "<br><br>";
+  const section_text_ppp = document.createElement("small");
+  section_text_ppp.setAttribute("class", "hashtags");
+  section_text_ppp.innerHTML = hashtag_text;
   section_text.appendChild(section_text_h2);
   section_text.appendChild(section_text_p);
   const br = document.createElement("br");
   section_text.appendChild(br);
   section_text.appendChild(section_text_pp);
+  section_text.appendChild(section_text_ppp);
   section.appendChild(section_text);
 
 
   document.getElementById("playlist-sections").appendChild(section);
 }
 //create the playlist section 2 divs (picture on the left)
-function createPlaylistSection2(name, description, img, genre){
+function createPlaylistSection2(name, description, img, genre, hashtag){
   const section2 = document.createElement("div");
   section2.setAttribute("class", "row no-gutters");
   const section_img2 = document.createElement("div");
@@ -90,14 +103,26 @@ function createPlaylistSection2(name, description, img, genre){
       genre_text += genre[g] + " · ";
     }
   }
+  let hashtag_text = "";
+  for (let h = 0; h < hashtag.length; h++){
+    if (h === hashtag.length - 1){
+      hashtag_text += "#" + hashtag[h];
+    }else{
+      hashtag_text += "#" + hashtag[h] + " &nbsp;&nbsp;&nbsp;";
+    }
+  }
   const section_text_pp = document.createElement("small");
   section_text_pp.setAttribute("class", "genres");
-  section_text_pp.innerHTML = genre_text;
+  section_text_pp.innerHTML = genre_text+ "<br><br>";
+  const section_text_ppp = document.createElement("small");
+  section_text_ppp.setAttribute("class", "hashtags");
+  section_text_ppp.innerHTML = hashtag_text;
   section_text2.appendChild(section_text_h22);
   section_text2.appendChild(section_text_p2);
   const br = document.createElement("br");
   section_text2.appendChild(br);
   section_text2.appendChild(section_text_pp);
+  section_text2.appendChild(section_text_ppp);
   section2.appendChild(section_text2);
   document.getElementById("playlist-sections").appendChild(section2);
 }

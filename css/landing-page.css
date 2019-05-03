@@ -151,6 +151,13 @@ a:hover {
   text-transform: lowercase;
 }
 
+.hashtags {
+  font-size: 15px;
+  color: #FFA500; /*//#79c753; */
+  font-style: italic;
+  text-transform: lowercase;
+}
+
 .blogtitle {
   font-size:36px !important;
   line-height:36px !important;
