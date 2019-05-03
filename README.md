@@ -4,7 +4,7 @@
 
 ## Preview
 
-[![Landing Page Preview](https://raw.githubusercontent.com/jachisam/everythingidaydreamed/master/images/everythingidaydreamed.png)](https://jachisam.github.io/everythingidaydreamed/)
+[![Landing Page Preview](https://raw.githubusercontent.com/jachisam/everythingidaydreamed/master/images/versions/everythingidaydreamedv2.png)](https://jachisam.github.io/everythingidaydreamed/)
 
 ## TO DO
 - ~~Search Bar css~~
