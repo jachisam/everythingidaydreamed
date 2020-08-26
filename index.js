@@ -43,7 +43,11 @@ function createPlaylistSection(name, description, img, genre, hashtag){
   section_text.setAttribute("class", "col-lg-6 order-lg-1 my-auto showcase-text");
   const section_text_h2 = document.createElement("h2");
   section_text_h2.setAttribute("style", "color:#a22a2a;");
-  section_text_h2.innerHTML = "<a href='https://www.google.com/'>"+name+"</a>";
+  section_text_h2.onclick = function() {
+   localStorage.setItem("storageName", name);
+  }
+  // section_text_h2.setAttribute("onclick", getPlaylistName(name));
+  section_text_h2.innerHTML = "<a href='playlist.html'>"+name+"</a>";
   const section_text_p = document.createElement("h3");
   section_text_p.setAttribute("class", "lead mb-0");
   section_text_p.innerHTML = description;
@@ -91,7 +95,10 @@ function createPlaylistSection2(name, description, img, genre, hashtag){
   const section_text2 = document.createElement("div");
   section_text2.setAttribute("class", "col-lg-6 order-lg-1 my-auto showcase-text");
   const section_text_h22 = document.createElement("h2");
-  section_text_h22.innerHTML = "<a href='https://www.google.com/'>"+name+"</a>";
+  section_text_h22.onclick = function() {
+   localStorage.setItem("storageName", name);
+  }
+  section_text_h22.innerHTML = "<a href='playlist.html'>"+name+"</a>";
   const section_text_p2 = document.createElement("p");
   section_text_p2.setAttribute("class", "lead mb-0");
   section_text_p2.innerHTML = description;
